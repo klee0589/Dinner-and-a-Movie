@@ -9,13 +9,10 @@ function App() {
     <div className="App">
       <button onClick={fetchData}>Fetch Random</button>
       <div className="container">
-        {cocktail && <div className="card">
+        {cocktail ? <div className="card">
           <div style={{fontSize: '30px'}}>{cocktail.name}</div>
           <div>{cocktail.ingredients.map((ingredient, index) => <div key={index}>{ingredient}</div>)}</div>
-        </div>
-        }
-        {
-          loading && 'Loading...'
+        </div> : loading && 'Loading...'
         }
       </div>
     </div>
