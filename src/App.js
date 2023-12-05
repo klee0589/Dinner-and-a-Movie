@@ -1,28 +1,22 @@
-
-import useCocktail from './useCocktail';
+import React from 'react';
 import './App.css';
 
-function App() {
-  const { cocktail, setSearchCocktail, fetchData, loading } = useCocktail();
+import useCocktail from './useCocktail';
 
+function App() {
+  const { cocktail, fetchData, loading } = useCocktail();
   return (
     <div className="App">
-      <input height="20" onChange={(e) => {
-        console.log(e.target.value.length)
-        setSearchCocktail(e.target.value)
-        if(e.target.value.length > 3){
-          fetchData()
-        }
-      }}/>
-      <div>
-      {loading ? 'Loading...' : <div>
-        {cocktail && cocktail.drinks.map( drink => {
-            return <div>
-              {drink.strDrink}
-            </div>
-        })}
+      <button onClick={fetchData}>Fetch Random</button>
+      <div className="container">
+        {cocktail && <div className="card">
+          <div style={{fontSize: '30px'}}>{cocktail.name}</div>
+          <div>{cocktail.ingredients.map((ingredient, index) => <div key={index}>{ingredient}</div>)}</div>
         </div>
-      }
+        }
+        {
+          loading && 'Loading...'
+        }
       </div>
     </div>
   );

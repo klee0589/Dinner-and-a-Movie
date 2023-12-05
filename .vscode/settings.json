@@ -1,0 +1,9 @@
+{
+    "files.autoSave": "off",
+    "editor.wordWrap": "on",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.codeActionWidget.includeNearbyQuickFixes": true,
+    "editor.columnSelection": false,
+    "eslint.format.enable": true,
+    "eslint.runtime": ""
+}
