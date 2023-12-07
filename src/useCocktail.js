@@ -19,8 +19,8 @@ const useCocktail = () => {
     try {
       setLoading(true)
       const response = await fetch(url, options);
-      const result = await response.text();
-      setCocktail(JSON.parse(result).body[0]);
+      const result = await response.json();
+      setCocktail(result.body[0].ingredients);
     } catch (error) {
       setLoading(false)
       console.error(error);

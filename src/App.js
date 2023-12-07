@@ -11,7 +11,7 @@ function App() {
       <div className="container">
         {cocktail ? <div className="card">
           <div style={{fontSize: '30px'}}>{cocktail.name}</div>
-          <div>{cocktail.ingredients.map((ingredient, index) => <div key={index}>{ingredient}</div>)}</div>
+          <div>{cocktail.map((ingredient, index) => <div key={index}>{ingredient}</div>)}</div>
         </div> : loading && 'Loading...'
         }
       </div>
