@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCocktail } from '../slices/cocktailSlice.ts';
+import { addCocktail } from '../slices/cocktailSlice';
 
 const useCocktail = () => {
   const [loading, setLoading] = useState(false);
