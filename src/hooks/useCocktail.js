@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCocktail } from '../slices/cocktailSlices';
 
 const useCocktail = () => {
   const [loading, setLoading] = useState(false);
@@ -10,7 +12,7 @@ const useCocktail = () => {
     method: 'GET',
     headers: {
       // eslint-disable-next-line no-undef
-      'X-RapidAPI-Key': process.env.REACT_APP_COCKTAIL_API_Key ,
+      'X-RapidAPI-Key': process.env.REACT_APP_COCKTAIL_API_Key,
       'X-RapidAPI-Host': 'cocktails3.p.rapidapi.com'
     }
   };
@@ -21,6 +23,7 @@ const useCocktail = () => {
       const response = await fetch(url, options);
       const result = await response.json();
       setCocktail(result.body[0].ingredients);
+      useDispatch(addCocktail(result.body[0].ingredients))
     } catch (error) {
       setLoading(false)
       console.error(error);
