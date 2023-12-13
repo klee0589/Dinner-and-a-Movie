@@ -9,7 +9,7 @@ export const cocktailSlice = createSlice({
   initialState,
   reducers: {
     addCocktail: (state, action) => {
-      state.allCocktails.push(action.payload)
+      state.allCocktails = [...state.allCocktails, action.payload]
     },
   },
 })
