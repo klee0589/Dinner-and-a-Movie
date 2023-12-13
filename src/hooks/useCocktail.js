@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCocktail } from '../slices/cocktailSlices';
+import { addCocktail } from '../slices/cocktailSlice.ts';
 
 const useCocktail = () => {
   const [loading, setLoading] = useState(false);
   const [cocktail, setCocktail] = useState();
+  const dispatch = useDispatch();
 
   const url = 'https://cocktails3.p.rapidapi.com/random';
 
@@ -23,7 +24,7 @@ const useCocktail = () => {
       const response = await fetch(url, options);
       const result = await response.json();
       setCocktail(result.body[0].ingredients);
-      useDispatch(addCocktail(result.body[0].ingredients))
+      dispatch(addCocktail(result.body[0].ingredients))
     } catch (error) {
       setLoading(false)
       console.error(error);
