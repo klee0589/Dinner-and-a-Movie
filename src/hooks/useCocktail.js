@@ -4,7 +4,7 @@ import { addCocktail } from '../slices/cocktailSlice';
 
 const useCocktail = () => {
   const [loading, setLoading] = useState(false);
-  const [cocktail, setCocktail] = useState();
+  // const [cocktail, setCocktail] = useState();
   const dispatch = useDispatch();
 
   const url = 'https://cocktails3.p.rapidapi.com/random';
@@ -23,8 +23,8 @@ const useCocktail = () => {
       setLoading(true)
       const response = await fetch(url, options);
       const result = await response.json();
-      setCocktail(result.body[0].ingredients);
-      dispatch(addCocktail(result.body[0].ingredients))
+      // setCocktail(result.body[0].ingredients);
+      dispatch(addCocktail(result.body[0]))
     } catch (error) {
       setLoading(false)
       console.error(error);
@@ -34,7 +34,7 @@ const useCocktail = () => {
   };
 
   return {
-    cocktail,
+    // cocktail,
     fetchData,
     loading
   }
