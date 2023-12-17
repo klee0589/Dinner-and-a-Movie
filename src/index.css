@@ -7,5 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #dac9e1;
   color: #121649;
+  font-family: 'Red Hat Mono', monospace;
   font-family: 'Roboto', sans-serif;
 }

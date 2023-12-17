@@ -17,7 +17,7 @@ function App() {
         <div>
           <h1>
             Cocktail: {cocktail ?
-              cocktail.name
+              <div>{cocktail.strDrink}<img src={cocktail.strDrinkThumb} height={50} /></div>
               : loading && 'Loading...'
             }
           </h1>

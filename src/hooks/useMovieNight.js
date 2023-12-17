@@ -13,7 +13,7 @@ const useMovieNight = () => {
     headers: {
       // eslint-disable-next-line no-undef
       'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-      'X-RapidAPI-Host': 'cocktails3.p.rapidapi.com'
+      'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
     }
   };
 
@@ -35,7 +35,7 @@ const useMovieNight = () => {
     },
   };
 
-  const cocktailUrl = 'https://cocktails3.p.rapidapi.com/random';
+  const cocktailUrl = 'https://the-cocktail-db.p.rapidapi.com/random.php';
   const movieUrl = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?country=us';
   const mealUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ignorePantry=true&ranking=1';
 
@@ -45,9 +45,8 @@ const useMovieNight = () => {
 
       let cocktailResponse = await fetch(cocktailUrl, cocktailOptions);
       let cocktailResult = await cocktailResponse.json();
-
-      let cocktailName = await cocktailResult.body[0].name;
-      let splitName = await cocktailName.split(' ');
+      let cocktailName = cocktailResult.drinks[0].strDrink;
+      let splitName = cocktailName.split(' ');
       let randomWordFromName = splitName[Math.floor(Math.random() * splitName.length)];
 
       let movieResponse = await fetch(`${movieUrl}&term=${randomWordFromName}`, movieOptions);
@@ -59,7 +58,7 @@ const useMovieNight = () => {
       let allResultsPromise = Promise.all([cocktailResult, movieResult, mealResult])
 
       allResultsPromise.then(([cocktailResult, movieResult, mealResponse]) => {
-        dispatch(addCocktail(cocktailResult.body[0]))
+        dispatch(addCocktail(cocktailResult.drinks[0]))
         dispatch(addMovie(movieResult))
         dispatch(addMeal(mealResponse))
       })
