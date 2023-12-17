@@ -9,6 +9,8 @@
   flex-wrap: wrap;
   width: 100%;
   justify-content: center;
+  flex-direction: column;
+  font-size: 20px;
 }
 
 .card {

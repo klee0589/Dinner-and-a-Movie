@@ -1,21 +1,32 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import './App.css';
-import useCocktail from './hooks/useCocktail';
-import CocktailCard from './components/CocktailCard';
+import useMovieNight from './hooks/useMovieNight';
+// import CocktailCard from './components/CocktailCard';
 
 function App() {
-  const { fetchData, loading } = useCocktail();
-  const cocktails = useSelector((state) => state.cocktails.allCocktails)
+  const { fetchData, loading } = useMovieNight();
+  const cocktail = useSelector((state) => state.cocktail.currentCocktail)
+  const meal = useSelector((state) => state.meal.currentMeal)
 
   return (
     <div className="App">
-      <button onClick={fetchData}>Fetch Random</button>
+      <button onClick={fetchData}>GENERATE MOVIE NIGHT</button>
       <div className="container">
-        {cocktails ?
-          cocktails.map((cocktail, index) => <div key={index}><CocktailCard cocktail={cocktail} /></div>)
-          : loading && 'Loading...'
-        }
+        <div>
+          Cocktail:
+          {cocktail ?
+            cocktail.name
+            : loading && 'Loading...'
+          }
+        </div>
+        <div>
+          Meal:
+          {meal ?
+            meal[0].title
+            : loading && 'Loading...'
+          }
+        </div>
       </div>
     </div>
   );

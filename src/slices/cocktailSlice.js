@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  allCocktails: [],
+  currentCocktail: null,
 }
 
 export const cocktailSlice = createSlice({
@@ -9,7 +9,7 @@ export const cocktailSlice = createSlice({
   initialState,
   reducers: {
     addCocktail: (state, action) => {
-      state.allCocktails = [...state.allCocktails, action.payload]
+      state.currentCocktail = action.payload
     },
   },
 })
