@@ -15,16 +15,20 @@ function App() {
       <button onClick={fetchData}>GENERATE MOVIE NIGHT</button>
       <div className="container">
         <div>
-          <h1>
-            Cocktail: {cocktail ?
-              <div>{cocktail.strDrink}<img src={cocktail.strDrinkThumb} height={50} /></div>
+          <div>
+            {cocktail ?
+              <div>
+                <h1>Cocktail: {cocktail.strDrink}</h1>
+                <p>{cocktail.strInstructions}</p>
+                <img src={cocktail.strDrinkThumb} height={50} />
+              </div>
               : loading && 'Loading...'
             }
-          </h1>
+          </div>
         </div>
         <div>
-          <h1>Meal: {meal ?
-            meal[0].title
+          <h1>{meal ?
+            <div>Meal: {meal[0].title}</div>
             : loading && 'Loading...'
           }
           </h1>

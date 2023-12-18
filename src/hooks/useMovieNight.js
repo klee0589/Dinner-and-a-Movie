@@ -26,18 +26,17 @@ const useMovieNight = () => {
     }
   };
 
-  const mealOptions = {
-    method: 'GET',
-    headers: {
-      // eslint-disable-next-line no-undef
-      'X-RapidAPI-Key': process.env.REACT_APP_RAPID_API_KEY,
-      'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-    },
-  };
+  // const mealOptions = {
+  //   method: 'GET',
+  //   headers: {
+  //     // eslint-disable-next-line no-undef
+  //     'x-api-key': process.env.REACT_APP_SPOON_API_KEY
+  //   },
+  // };
 
   const cocktailUrl = 'https://the-cocktail-db.p.rapidapi.com/random.php';
   const movieUrl = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?country=us';
-  const mealUrl = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ignorePantry=true&ranking=1';
+  // const mealUrl = 'https://api.spoonacular.com/food/wine/dishes?wine=malbec';
 
   const fetchData = async () => {
     try {
@@ -52,10 +51,10 @@ const useMovieNight = () => {
       let movieResponse = await fetch(`${movieUrl}&term=${randomWordFromName}`, movieOptions);
       let movieResult = await movieResponse.json();
 
-      let mealResponse = await fetch(`${mealUrl}&ingredients=basil%2Ctomato%2Cgarlic%2Cmozarella`, mealOptions);
-      let mealResult = await mealResponse.json();
+      // let mealResponse = await fetch(mealUrl, mealOptions);
+      // let mealResult = await mealResponse.json();
 
-      let allResultsPromise = Promise.all([cocktailResult, movieResult, mealResult])
+      let allResultsPromise = Promise.all([cocktailResult, movieResult])
 
       allResultsPromise.then(([cocktailResult, movieResult, mealResponse]) => {
         dispatch(addCocktail(cocktailResult.drinks[0]))
