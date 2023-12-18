@@ -1,7 +1,6 @@
 .App {
   text-align: center;
-  padding: 10px;
-  height: 100vh;
+  height: 100%;
 }
 
 .container {
@@ -13,17 +12,6 @@
   font-size: 20px;
 }
 
-.card {
-  background-color: #f9f8f8;
-  width: 500px;
-  text-transform: capitalize;
-  display: flex;
-  flex-direction: row;
-  margin: 5px;
+.generateCard {
+  padding: 20px;
 }
-
-/* #f9f8f8	
-#dac9e1	
-#967fa3	
-#564474	
-#121649 */

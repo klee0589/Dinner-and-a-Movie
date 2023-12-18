@@ -21,3 +21,9 @@ Ensure that you set up the necessary environment variables for API keys. Create 
 `
 REACT_APP_RAPID_API_KEY = your_rapid_api_key
 `
+
+### APIs
+
+- Cocktail DB - https://rapidapi.com/thecocktaildb/api/the-cocktail-db
+- Spoonacular API - https://spoonacular.com/food-api
+- Utelly - https://rapidapi.com/utelly/api/utelly
