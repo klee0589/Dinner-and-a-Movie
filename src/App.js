@@ -16,7 +16,7 @@ function App() {
       <div className="container">
         <div>
           <div>
-            {cocktail ?
+            {cocktail && !loading ?
               <div>
                 <h1>Cocktail: {cocktail.strDrink}</h1>
                 <p>{cocktail.strInstructions}</p>
@@ -27,14 +27,14 @@ function App() {
           </div>
         </div>
         <div>
-          <h1>{meal ?
+          <h1>{meal && !loading ?
             <div>Meal: {meal[0].title}</div>
             : loading && 'Loading...'
           }
           </h1>
         </div>
         <div>
-          {movie && movie.results[0] && movie.results[0].name ?
+          {movie && !loading ?
             <div>
               <h1>Movie: {movie.results[0].name}</h1>
               <img src={movie.results[0].picture} width={250} height={250} />
