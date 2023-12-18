@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   height: 100%;
+  padding-top: 20px;
 }
 
 .container {
@@ -12,6 +13,13 @@
   font-size: 20px;
 }
 
-.generateCard {
-  padding: 20px;
+.loading {
+  animation: blinker 1s linear infinite;
+  font-size: 30px;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }

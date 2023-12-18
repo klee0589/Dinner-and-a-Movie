@@ -21,14 +21,14 @@ function App() {
         width: '100%',
         top: '0px',
       }}>
-        <Box sx={{ bgcolor: '#F05941', width: '100%', height: '10%' }} />
+        <Box sx={{ bgcolor: '#F05941', width: '100%', height: '15%' }} />
         <Box sx={{ bgcolor: '#BE3144', width: '100%', height: '20%' }} />
         <Box sx={{ bgcolor: '#872341', width: '100%', height: '30%' }} />
-        <Box sx={{ bgcolor: '#22092C', width: '100%', height: '40%' }} />
+        <Box sx={{ bgcolor: '#22092C', width: '100%', height: '35%' }} />
       </div>
       <Container>
         <div className='generateCard'>
-          <Button variant="contained" onClick={fetchData}>GENERATE MOVIE NIGHT</Button>
+          <Button color="success" variant="contained" onClick={fetchData}>GENERATE MOVIE NIGHT</Button>
           {
             cocktail && movie && <MovieAndDrink loading={loading} cocktail={cocktail} movie={movie} />
           }

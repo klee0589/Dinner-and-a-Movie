@@ -39,9 +39,9 @@ const useMovieNight = () => {
   // const mealUrl = 'https://api.spoonacular.com/food/wine/dishes?wine=malbec';
 
   const fetchData = async () => {
-    try {
-      setLoading(true)
+    setLoading(true)
 
+    try {
       let cocktailResponse = await fetch(cocktailUrl, cocktailOptions);
       let cocktailResult = await cocktailResponse.json();
       let cocktailName = cocktailResult.drinks[0].strDrink;
@@ -70,7 +70,8 @@ const useMovieNight = () => {
 
   return {
     fetchData,
-    loading
+    loading,
+    setLoading
   }
 
 }
