@@ -15,15 +15,15 @@ const MovieAndDrink = ({ cocktail, movie, loading }) => {
                 {
                     loading ? <div >{'Loading...'}</div> :
                         <>
-                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                <h1>Drink: {cocktail.strDrink}</h1>
-                                <Avatar src={cocktail.strDrinkThumb} variant={'rounded'} sx={{ marginLeft: '10px' }} />
-                            </div>
-                            <h3>{cocktail.strInstructions}</h3>
                             <div>
                                 <h1>Now Playing: {movie.results[0]?.name}</h1>
                                 <img src={movie.results[0]?.picture} width={250} height={250} style={{ borderRadius: '20px' }} />
                             </div>
+                            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <h1>Pair with this drink - {cocktail.strDrink}</h1>
+                                <Avatar src={cocktail.strDrinkThumb} variant={'rounded'} sx={{ marginLeft: '10px' }} />
+                            </div>
+                            <h3>{cocktail.strInstructions}</h3>
                         </>
                 }
             </Card>
