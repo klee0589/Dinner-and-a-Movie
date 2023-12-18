@@ -26,13 +26,11 @@ function App() {
         <Box sx={{ bgcolor: '#872341', width: '100%', height: '30%' }} />
         <Box sx={{ bgcolor: '#22092C', width: '100%', height: '40%' }} />
       </div>
-      <Container sx={{
-        marginTop: '20px'
-      }}>
+      <Container>
         <div className='generateCard'>
           <Button variant="contained" onClick={fetchData}>GENERATE MOVIE NIGHT</Button>
           {
-            cocktail && movie && !loading && <MovieAndDrink loading={loading} cocktail={cocktail} movie={movie} />
+            cocktail && movie && <MovieAndDrink loading={loading} cocktail={cocktail} movie={movie} />
           }
         </div>
       </Container>
