@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addCocktail } from '../slices/cocktailSlice';
 import { addMovie } from '../slices/movieSlice';
-import { addMeal } from '../slices/mealSlice';
+// import { addMeal } from '../slices/mealSlice';
 
 const useMovieNight = () => {
   const [loading, setLoading] = useState(false);
@@ -56,10 +56,15 @@ const useMovieNight = () => {
 
       let allResultsPromise = Promise.all([cocktailResult, movieResult])
 
-      allResultsPromise.then(([cocktailResult, movieResult, mealResponse]) => {
+      allResultsPromise.then((
+        [
+          cocktailResult,
+          movieResult,
+          // mealResponse
+        ]) => {
         dispatch(addCocktail(cocktailResult.drinks[0]))
         dispatch(addMovie(movieResult))
-        dispatch(addMeal(mealResponse))
+        // dispatch(addMeal(mealResponse))
       })
     } catch (error) {
       console.error(error);
