@@ -6,7 +6,6 @@ const MovieAndDrink = ({ cocktail, movie, loading }) => {
     return (
         <Container sx={{
             width: '100%',
-            maxWidth: '250px',
             minHeight: '200px',
             marginTop: '20px',
         }}>

@@ -23,3 +23,27 @@
     opacity: 0;
   }
 }
+
+/* Define the animation keyframes */
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Apply the animation to an element */
+.animated-element {
+  /* Set initial position */
+  transform: translateY(0);
+  
+  /* Set animation properties */
+  animation: moveUpDown 2s infinite;
+  /* 
+    - 'moveUpDown' is the name of the keyframes
+    - '2s' is the duration of the animation (2 seconds)
+    - 'infinite' makes the animation repeat indefinitely
+  */
+}
